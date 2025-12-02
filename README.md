@@ -109,7 +109,7 @@ The goal is **education**, not performance.
 
 ---
 
-# ▶️ Example: Training on `make_moons`
+# Example: Training on `make_moons`
 
 A demo script is included where:
 
