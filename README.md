@@ -61,58 +61,6 @@ Backprop is done by:
 2. Doing a **topological sort**  
 3. Calling `_backward()` on each node in reverse order  
 
-Example:
-
-\[
-z = x \cdot y
-\]
-
-Then:
-
-\[
-\frac{\partial z}{\partial x} = y,\quad \frac{\partial z}{\partial y} = x
-\]
-
-micrograd implements exactly these rules manually.
-
----
-
-##  **Activation Function: tanh**
-
-A neuron uses:
-
-\[
-\tanh(x) = \frac{e^{2x} - 1}{e^{2x} + 1}
-\]
-
-Derivative:
-
-\[
-\frac{d}{dx}\tanh(x) = 1 - \tanh^2(x)
-\]
-
-This is coded in:
-
-```python
-def tanh(self):
-    t = ...
-    self.grad += (1 - t**2) * out.grad
-````
-
----
-
-## **Gradient Descent**
-
-After computing gradients:
-
-[
-w \leftarrow w - \eta \cdot \frac{\partial L}{\partial w}
-]
-
-Your MLP updates every weight manually using `.grad`.
-
----
-
 #  Code Structure
 
 ### **Value Class**
@@ -171,6 +119,3 @@ A demo script is included where:
 * Decision boundaries can be plotted
 ---
 
-
-Just tell me!
-```
